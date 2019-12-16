@@ -16,9 +16,9 @@ with open('calls.csv', 'r') as f:
 telephone_numbers_texts = list(chain.from_iterable((text[0], text[1]) for text in texts))
 telephone_numbers_calls = list(chain.from_iterable((call[0], call[1]) for call in calls))
 
-unique_records = set(telephone_numbers_texts + telephone_numbers_calls)
+unique_records = list(chain.from_iterable((telephone_numbers_texts, telephone_numbers_calls)))
 
-print("There are {0} different telephone numbers in the records.".format(len(unique_records)))
+print("There are {0} different telephone numbers in the records.".format(len(set(unique_records))))
 
 """
 TASK 1:

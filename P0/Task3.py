@@ -8,10 +8,31 @@ with open('calls.csv', 'r') as f:
     reader = csv.reader(f)
     calls = list(reader)
 
+# Part A
+
+def get_prefix(n):
+    if n.startswith('('):
+        prefix = n[:n.index(')')+1]
+    elif n.startswith('140'):
+        prefix = 140
+    else:
+        prefix = n[:4]
+    return prefix
+
+
+recievers = []
 for call in calls:
-  
-  if call[0].startswith('(080)'):
-    
+    if call[0].startswith('(080)'):
+        recievers.append(get_prefix(call[1]))
+
+print("The numbers called by people in Bangalore have codes: ")
+for receiver in sorted(recievers, key=str.lower)):
+  print(recievers)
+
+
+# Part B
+
+print("{} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.".format(round(recievers.count('(080)')/len(recievers), 2)))
 
 
 """
