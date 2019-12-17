@@ -26,8 +26,8 @@ for call in calls:
         recievers.append(get_prefix(call[1]))
 
 print("The numbers called by people in Bangalore have codes: ")
-for receiver in sorted(recievers, key=str.lower)):
-  print(recievers)
+for receiver in sorted(recievers, key=str.lower):
+    print(recievers)
 
 
 # Part B

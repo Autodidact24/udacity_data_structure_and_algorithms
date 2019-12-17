@@ -22,8 +22,9 @@ for num in callers:
     if num not in receivers + texters + text_receivers + telemarketers:
         telemarketers.append(num)
     
-print("These numbers could be telemarketers: {}".format(sorted(telemarketers, key=str.lower)))
-
+print("These numbers could be telemarketers: ")
+for num in sorted(telemarketers, key=str.lower):
+    print(num)
 
 """
 TASK 4:
