@@ -101,17 +101,23 @@ def get_prefix(n):
     return prefix
 
 
-recievers = []
-print("The numbers called by people in Bangalore have codes: ")
+receivers = []
 for call in calls:
     if call[0].startswith('(080)'):
-        print(get_prefix(call[1]))
-        recievers.append(get_prefix(call[1]))
+        receivers.append(get_prefix(call[1]))
+
+unique_receivers = set(receivers)
+
+print("The numbers called by people in Bangalore have codes: ")
+for receiver in sorted(unique_receivers, key=str.lower):
+    print(receiver)
 
 
 # Part B
 
-print("{} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.".format(round(recievers.count('(080)')/len(recievers), 2)))
+print("{0:.2f} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.".format(receivers.count('(080)')/len(receivers)*100))
+
+
 ```
 This requires iterating over the complete input file which has a complexity of O(n). Lexicographically sorting the `receivers` list has a complexity of O(log n).
 Hence, the whole process has a complexity of O(n log n).
